@@ -8,27 +8,18 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   Name:
   <input type="text" formControlName="name" required>
-  <small *ngIf="fm.name.invalid && (fm.name.dirty || fm.name.touched)">
-    <span *ngIf="fm.name.errors.required" style="color:red;">Name is required</span>
-  </small>
 
   <br>
   Email: 
   <input type="email" formControlName="email" required>
-  <small *ngIf="fm.email.invalid && (fm.email.dirty || fm.email.touched)">
-    <span *ngIf="fm.email.errors.required" style="color:red;">Name is required</span>
-  </small>
 
   <br>
   Age: 
   <input type="number" formControlName="age" required>
-  <small *ngIf="fm.age.invalid && (fm.age.dirty || fm.age.touched)">
-    <span *ngIf="fm.age.errors.required" style="color:red;">Name is required</span>
-  </small>
 
   <br>
   Gender: 
-  <select formControlName="gender">
+  <select formControlName="gender" required>
     <option *ngFor="let item of genders" value="{{item.id}}">
       {{item.label}}
       </option>

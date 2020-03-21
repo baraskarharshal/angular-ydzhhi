@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AppComponent  {
 
+  submitted = false;
   form: FormGroup;
   genders = [
     {id: 1, label: 'Male'},
@@ -34,13 +35,17 @@ export class AppComponent  {
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       age: ['', Validators.required],
-      gender: ['']
+      gender: ['', Validators.required]
     });
   }
 
   get fm(){return this.form.controls;}
 
   submit(){
+    this.submitted = true;
+    if(this.form.invalid){
+      return;
+    }
     this.printModal();
   }
 
